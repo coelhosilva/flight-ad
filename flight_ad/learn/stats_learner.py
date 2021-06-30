@@ -4,6 +4,7 @@ from flight_ad.utils import retrieve_partial_pipeline
 
 class StatisticalLearner:
     def __init__(self, steps, memory=None, verbose=False, record=None):
+        """Init StatisticalLearner with steps, memory, verbose, and record."""
         if record is None:
             recorded_steps = []
             record = False
@@ -44,6 +45,7 @@ class StatisticalLearner:
         return self
 
     def __str__(self):
+        """String version of the class for printing."""
         return f"""
         StatisticalLearner:
             steps: {self.steps}
@@ -55,6 +57,7 @@ class StatisticalLearner:
         """
 
     def __repr__(self):
+        """String representation of the class."""
         return f"StatisticalLearner(steps={self.steps}, memory={self.memory}, verbose={self.verbose}, " \
                f"record={self.record}, recorded_steps={self.recorded_steps}, partial_data={self.partial_data})"
 

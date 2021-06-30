@@ -6,6 +6,7 @@ from flight_ad.utils.data import DataBinder
 
 class AnomalyDetectionPipeline:
     def __init__(self, binder: DataBinder, wrangler: DataWrangler, learner: StatisticalLearner):
+        """Init AnomalyDetectionPipeline with binder, wrangler, and learner."""
         self.binder = binder
         self.wrangler = wrangler
         self.learner = learner

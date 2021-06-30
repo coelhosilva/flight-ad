@@ -3,6 +3,7 @@ from pandas import DataFrame
 
 class FunctionPipeline:
     def __init__(self, steps, memorize=None):
+        """Init FunctionPipeline with steps and memorize."""
         if memorize is None:
             memorized_steps = []
             memorize = False
@@ -51,12 +52,26 @@ class FunctionPipeline:
         """
 
     def __repr__(self):
+        """String representation of the class."""
         return f"FunctionPipeline(steps={self.steps}, memorize={self.memorize})"
 
 
 class DataWrangler(FunctionPipeline):
     def __init__(self, steps, memorize=None):
+        """Init DataWrangler with steps and memorize."""
         super().__init__(steps, memorize)
+
+    def __str__(self):
+        return f"""
+        DataWrangler:
+            steps: {self.steps}
+            memorize: {self.memorize}
+            results: {self.results if self.memorize else "N/A"}
+        """
+
+    def __repr__(self):
+        """String representation of the class."""
+        return f"DataWrangler(steps={self.steps}, memorize={self.memorize})"
 
 
 if __name__ == '__main__':

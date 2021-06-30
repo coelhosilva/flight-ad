@@ -36,11 +36,13 @@ class DataBinder:
         return True if self.bindings == other.bindings else False
 
     def __str__(self):
+        """String version of the class for printing."""
         return f"""
         Data binder:
         Number of samples: {len(self.bindings.keys())}
         """
 
     def __repr__(self):
+        """String representation of the class."""
         return f"DataBinder(bindings={self.bindings})"
 

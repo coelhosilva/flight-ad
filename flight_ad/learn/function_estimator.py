@@ -7,6 +7,7 @@ __all__ = ['FunctionEstimator']
 
 class FunctionEstimator(BaseEstimator, TransformerMixin):
     def __init__(self, fun):
+        """Init FunctionEstimator with function fun."""
         self.fun = fun
 
     def fit(self, X, y=None):
