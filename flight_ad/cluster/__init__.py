@@ -1,6 +1,4 @@
-"""
-The :mod:`flight_ad.cluster` module gathers unsupervised clustering algorithms.
-"""
+"""Unsupervised clustering algorithms."""
 
 from ._dbscan import DBSCAN
 
