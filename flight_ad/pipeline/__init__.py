@@ -1,1 +1,1 @@
-from ad import AnomalyDetectionPipeline
+from .ad import AnomalyDetectionPipeline
