@@ -2,14 +2,22 @@
 **flight-ad** is a Python package for anomaly detection in the aviation domain built on top of scikit-learn.
 
 It provides:
-  - An implementation of an anomaly detection pipeline;
-  - A DataBinder object for loading and transforming the data within the pipeline on the fly;
-  - A DataWrangler object for building a data wrangling pipeline;
-  - A StatisticalLearner object for binding scikit-learn's pipelines and integrating them on the anomaly detection workflow;
-  - Visualization tools for assessing potential anomalies;
-  - Reporting tools for analyzing results;
-  - Sample airplane sensor data (repackaged NASA's DASHlink for the purpose of evaluating and advancing data mining capabilities that can be used to promote aviation safety;
-  - Adaptations of machine learning algorithms, such as a DBSCAN implementation that calculates the hyperparameter epsilon from the input data.
+
+- An implementation of an anomaly detection pipeline;
+
+- A DataBinder object for loading and transforming the data within the pipeline on the fly;
+
+- A DataWrangler object for building a data wrangling pipeline;
+
+- A StatisticalLearner object for binding scikit-learn's pipelines and integrating them on the anomaly detection workflow;
+
+- Visualization tools for assessing potential anomalies;
+
+- Reporting tools for analyzing results;
+
+- Sample airplane sensor data (repackaged NASA's DASHlink for the purpose of evaluating and advancing data mining capabilities that can be used to promote aviation safety;
+
+- Adaptations of machine learning algorithms, such as a DBSCAN implementation that calculates the hyperparameter epsilon from the input data.
 
 ## Instalation
 The easiest way to install flight-ad is using pip from your virtual environment.
