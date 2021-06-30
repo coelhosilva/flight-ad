@@ -48,19 +48,14 @@ def update_fontsize(ax, label, fontsize):
     return ax
 
 
-def get_quantile_per_sample(df, quantile, base_column, object_column=None):
-    """
-    Calculates the specified quantile accross the sample.
-    """
+def get_quantile_per_sample(df, quantile, base_column):
+    """Calculates the specified quantile across the sample."""
     df = df.copy()
     output = pd.DataFrame()
     for unique_sample in df[base_column].unique():
-        sample_size = len(df[df[base_column] == unique_sample])
-        # if sample_size < 10:
-        #     continue
         object_df = df[df[base_column] == unique_sample]
         output = output.append(object_df.quantile(quantile))
-    # return output
+
     return output.sort_values(by=base_column)
 
 
@@ -257,7 +252,7 @@ def plot_silhouette(sample_silhouette_values, n_clusters, labels, silhouette_avg
 
 if __name__ == '__main__':
     df_flights = pd.DataFrame({'id':[1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4],'x':[1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4],'y':[1,2,3,4,2,4,6,8,4,8,10,12,5,2,6,8]})
-    quantile_10 = get_quantile_per_sample(df_flights, 0.1,"x")
+    quantile_10 = get_quantile_per_sample(df_flights, 0.1, "x")
     quantile_90 = get_quantile_per_sample(df_flights, 0.9, "x")
     _ = plot_flights_n_boundary(df_flights,
                                 'x', 'y','id',

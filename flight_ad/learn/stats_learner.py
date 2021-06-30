@@ -15,6 +15,8 @@ class StatisticalLearner:
             record = True
         elif record:
             recorded_steps = [s[0] for s in steps]
+        else:
+            recorded_steps = []
 
         self.steps = [*steps['preprocessing'], *steps['training']]
         self.memory = memory
@@ -54,7 +56,7 @@ class StatisticalLearner:
 
     def __repr__(self):
         return f"StatisticalLearner(steps={self.steps}, memory={self.memory}, verbose={self.verbose}, " \
-               f"record={self.record}, recorded_steps={self.recorded_steps}, partial_data={self.partial_data}) "
+               f"record={self.record}, recorded_steps={self.recorded_steps}, partial_data={self.partial_data})"
 
 
 if __name__ == '__main__':

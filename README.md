@@ -2,19 +2,24 @@
 **flight-ad** is a Python package for anomaly detection in the aviation domain built on top of scikit-learn.
 
 It provides:
-
 - An implementation of an anomaly detection pipeline;
+- A DataBinder object for loading and transforming the data within the pipeline on the fly;
+- A DataWrangler object for building a data wrangling pipeline;
+- A StatisticalLearner object for binding scikit-learn's pipelines and integrating them on the 
+  anomaly detection workflow;
 - Visualization tools for assessing potential anomalies;
-- Reporting tools for analyzing model results;
-- Sample airplane sensor data (from NASA's DASHlink);
-- Sample pipelines such as the DBSCAN pipeline.
+- Reporting tools for analyzing results;
+- Sample airplane sensor data (repackaged NASA's DASHlink for the purpose of evaluating and advancing 
+  data mining capabilities that can be used to promote aviation safety;
+- Adaptations of machine learning algorithms, such as a DBSCAN implementation that calculates the hyperparameter 
+  epsilon from the input data.
 
 ## Instalation
 The easiest way to install flight-ad is using pip from your virtual environment.
 
 Directly from GitHub:
 
-```pip install git+https://github.com/Flight-Anomaly-Detection/flight-ad.git```
+```pip install git+https://github.com/coelhosilva/flight-ad.git```
 
 ## Examples
 TODO.
@@ -26,7 +31,7 @@ from wrangling import preprocess, change_col, resample, select
 from flight_ad.transformations import reshape_df_interspersed
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-from flight_ad.unsupervised import DBSCAN
+from flight_ad.cluster import DBSCAN
 from flight_ad.learn import FunctionEstimator
 from flight_ad.learn import StatisticalLearner
 from flight_ad.pipeline import AnomalyDetectionPipeline
@@ -80,12 +85,17 @@ TODO.
 - matplotlib
 
 ## Contributions
-We welcome and encourage new contributors to help test flight-ad and add new functionality. If one wishes to contact the author, they may do so by emailing coelho@ita.br.
+We welcome and encourage new contributors to help test flight-ad and add new functionality. Any input, feedback, 
+bug report or contribution is welcome.
+
+If one wishes to contact the author, they may do so by emailing coelho@ita.br.
 
 
 ## Citation
 If you use flight-ad in a scientific publication, we would appreciate citations.
+
 BibTex: add.
+
 Citation string: add.
 
 <!-- ```pip install flight-ad ``` -->
