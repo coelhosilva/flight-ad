@@ -1,5 +1,7 @@
 # flight-ad
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d2f06dedcb044256828e1c907d9c511a)](https://www.codacy.com/gh/coelhosilva/flight-ad/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=coelhosilva/flight-ad&amp;utm_campaign=Badge_Grade)
+
 **flight-ad** is a Python package for anomaly detection in the aviation domain built on top of scikit-learn.
 
 It provides:
