@@ -25,7 +25,7 @@ Directly from GitHub:
 
 ## Examples
 
-Sample usage of the package for constructing an anomaly detection pipeline:
+This is a sample usage of the package for constructing an anomaly detection pipeline. Beware that the sample dataset may take up roughly 1 GB in disk space.
 
 ```python
 from flight_ad.datasets import load_dashlink_bindings
@@ -42,7 +42,7 @@ from flight_ad.pipeline import AnomalyDetectionPipeline
 from flight_ad.report import clustering_info, silhouette
 
 # Binder
-data_bindings = load_dashlink_bindings()
+data_bindings = load_dashlink_bindings(download=True)
 binder = DataBinder(data_bindings)
 
 # Wrangler

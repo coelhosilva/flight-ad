@@ -4,6 +4,8 @@ local/
 temp/
 tmp/
 snippets/
+datasets/*.zip
+*.parquet
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

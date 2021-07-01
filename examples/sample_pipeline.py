@@ -12,7 +12,7 @@ from flight_ad.pipeline import AnomalyDetectionPipeline
 from flight_ad.report import clustering_info, silhouette
 
 # Binder
-data_bindings = load_dashlink_bindings()
+data_bindings = load_dashlink_bindings(download=True)
 binder = DataBinder(data_bindings)
 
 # Wrangler

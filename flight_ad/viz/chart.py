@@ -75,9 +75,8 @@ def plot_flights_n_boundary(df_flights, x_column, y_column, hue_column,
                             highlight_flights=None,
                             label_highlighted_flights=False,
                             include_legend=True):
-    """
-    Plots pair of parameters for every flight within the compiled dataframe.
-    """
+    """Plots pair of parameters for every flight within the compiled dataframe."""
+
     df_flights = df_flights.copy()
     fig, ax = plt.subplots()
     if xlims is None:

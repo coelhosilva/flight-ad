@@ -1,1 +1,1 @@
-include flight_ad/datasets/*
+include flight_ad/datasets/data.json

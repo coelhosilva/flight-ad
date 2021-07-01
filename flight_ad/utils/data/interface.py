@@ -4,6 +4,7 @@ from collections import OrderedDict
 
 class DataBinder:
     def __init__(self, bindings=None):
+        """Init DataBinder with bindings."""
         if bindings is None:
             bindings = OrderedDict()
         self.bindings = bindings
@@ -33,6 +34,7 @@ class DataBinder:
         return data
 
     def __eq__(self, other):
+        """Check equality between two DataBinding objects."""
         return True if self.bindings == other.bindings else False
 
     def __str__(self):

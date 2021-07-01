@@ -26,7 +26,7 @@ def insert_missing_data(df_flight, parameter_categories, index):
 
 
 def get_touchdown_index(df, pressure_altitude_key, air_ground_key, ground_value):
-    """
+    """Calculate touchdown index.
 
     :param df:
     :param pressure_altitude_key:

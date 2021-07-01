@@ -62,6 +62,7 @@ class DataWrangler(FunctionPipeline):
         super().__init__(steps, memorize)
 
     def __str__(self):
+        """String version of the class for printing."""
         return f"""
         DataWrangler:
             steps: {self.steps}
