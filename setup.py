@@ -21,7 +21,8 @@ setuptools.setup(
         'scikit-learn~=0.24.2',
         'pandas~=1.2.4',
         'matplotlib~=3.4.2',
-        'pyarrow~=4.0.1'
+        'pyarrow~=4.0.1',
+        'tqdm~=4.61.1'
     ],
     keywordsList=['anomaly detection', 'anomaly', 'flight'],
     classifiers=[

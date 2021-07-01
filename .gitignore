@@ -4,7 +4,6 @@ local/
 temp/
 tmp/
 snippets/
-datasets/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
