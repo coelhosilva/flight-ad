@@ -12,7 +12,7 @@ It provides:
 -   A StatisticalLearner object for binding scikit-learn's pipelines and integrating them on the anomaly detection workflow;
 -   Visualization tools for assessing potential anomalies;
 -   Reporting tools for analyzing results;
--   Sample airplane sensor data (repackaged NASA's DASHlink for the purpose of evaluating and advancing data mining capabilities that can be used to promote aviation safety;
+-   Sample airplane sensor data, repackaged from NASA's DASHlink for the purpose of evaluating and advancing data mining capabilities that can be used to promote aviation safety;
 -   Adaptations of machine learning algorithms, such as a DBSCAN implementation that calculates the hyperparameter epsilon from the input data.
 
 ## Instalation
@@ -31,7 +31,7 @@ Sample usage of the package for constructing an anomaly detection pipeline:
 from flight_ad.datasets import load_dashlink_bindings
 from flight_ad.utils.data import DataBinder
 from flight_ad.wrangling import DataWrangler
-from wrangling import preprocess, change_col, resample, select
+from wrangling_functions import preprocess, change_col, resample, select
 from flight_ad.transformations import reshape_df_interspersed
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
