@@ -49,6 +49,7 @@ It provides:
 # Research
 
 ``flight-ad`` is currently being used in the following research:
+
   -  Should we add a pre-print version to, e.g., arXiv so we have a reference and don't have to wait for a full cycle of the paper?
   
 # References
