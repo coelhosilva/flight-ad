@@ -7,12 +7,16 @@ MODULE_PATH = Path(__file__).parent
 DATASET_INFO = retrieve_json(MODULE_PATH/"data.json")
 
 
-def download_dataset():
+class DatasetException(Exception):
     pass
 
 
+def download_dataset():
+    return Path(None)
+
+
 def check_dataset_existence(dataset_path: Path):
-    return True
+    return False
 
 
 def load(f):
@@ -22,7 +26,14 @@ def load(f):
     return df.copy()
 
 
-def load_dashlink_bindings(data_path=MODULE_PATH/"flights"):
+def load_dashlink_bindings(data_path=None, download=False):
+    if data_path is None:
+        data_path = MODULE_PATH/"flights"
+
+    if not check_dataset_existence(data_path) and download:
+        data_path = download_dataset()
+    elif not check_dataset_existence(data_path):
+        raise DatasetException("Dataset not found.")
 
     bind_function = load
 

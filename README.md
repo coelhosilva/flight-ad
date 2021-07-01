@@ -25,7 +25,7 @@ Directly from GitHub:
 
 ## Examples
 
-TODO.
+Sample usage of the package for constructing an anomaly detection pipeline:
 
 ```python
 from flight_ad.datasets import load_dashlink_bindings
@@ -79,7 +79,7 @@ avg_silhouette, _ = silhouette(learner.partial_data['pca'], labels)
 
 ## Package structure
 
-TODO.
+TBD.
 
 ## Dependencies
 
@@ -103,9 +103,9 @@ If one wishes to contact the author, they may do so by emailing coelho@ita.br.
 
 If you use flight-ad in a scientific publication, we would appreciate citations.
 
-BibTex: add.
+BibTex: TBD.
 
-Citation string: add.
+Citation string: TBD.
 
 <!-- ```pip install flight-ad ``` -->
 
