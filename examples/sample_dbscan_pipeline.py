@@ -40,7 +40,7 @@ learner = StatisticalLearner(learning_steps, record='pca')
 
 # Pipeline
 ad_pipeline = AnomalyDetectionPipeline(binder, wrangler, learner)
-ad_pipeline.run()
+ad_pipeline.fit()
 
 # Results
 labels, n_clusters, n_noise = clustering_info(learner.pipeline['dbscan'])

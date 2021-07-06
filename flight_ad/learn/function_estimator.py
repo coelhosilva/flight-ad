@@ -1,7 +1,6 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 import numpy as np
 
-
 __all__ = ['FunctionEstimator']
 
 

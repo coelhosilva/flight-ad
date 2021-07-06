@@ -1,6 +1,8 @@
 from sklearn.pipeline import Pipeline
 from flight_ad.utils import retrieve_partial_pipeline
 
+__all__ = ['StatisticalLearner']
+
 
 class StatisticalLearner:
     def __init__(self, steps, memory=None, verbose=False, record=None):
@@ -38,11 +40,14 @@ class StatisticalLearner:
     def _make_pipeline(self):
         return Pipeline(self.steps, memory=self.memory, verbose=self.verbose)
 
-    def fit(self, X):
+    def fit(self, X, y=None):
         for pipeline in self.partial_pipelines:
             self.partial_data[pipeline[0]] = pipeline[1].fit_transform(X)
-        self.pipeline.fit(X)
+        self.pipeline.fit(X, y)
         return self
+
+    def predict(self, X):
+        return self.pipeline.predict(X)
 
     def __str__(self):
         """String version of the class for printing."""

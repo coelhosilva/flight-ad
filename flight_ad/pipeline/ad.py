@@ -11,9 +11,15 @@ class AnomalyDetectionPipeline:
         self.wrangler = wrangler
         self.learner = learner
 
-    def run(self, verbose=False):
+    def fit(self, y=None, verbose=False):
         ds = []
         for _, d in tqdm(self.binder.iterdata()):
             ds.append(self.wrangler.compose(d))
-        self.learner.fit(ds)
+        self.learner.fit(ds, y=y)
         return self
+
+    def predict(self, binder):
+        ds = []
+        for _, d in tqdm(binder.iterdata()):
+            ds.append(self.wrangler.compose(d))
+        return self.learner.predict(ds)

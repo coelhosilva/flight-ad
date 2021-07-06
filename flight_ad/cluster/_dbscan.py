@@ -3,7 +3,6 @@ from sklearn.cluster import DBSCAN as sklearn_dbscan
 from sklearn.neighbors import NearestNeighbors
 from flight_ad.math.geometry import curvature
 
-
 __all__ = ['DBSCAN']
 
 
@@ -35,7 +34,7 @@ def calculate_eps(X, mode=None, **kwargs):
 
 
 class DBSCAN(sklearn_dbscan):
-    def __init__(self, eps=None, min_samples=5, metric='euclidean',
+    def __init__(self, eps=None, *, min_samples=5, metric='euclidean',
                  metric_params=None, algorithm='auto', leaf_size=30, p=None,
                  n_jobs=None):
         """Init DBSCAN with eps, min_samples, metric, metric_params, algorithm, leaf_size, p, and n_jobs."""
@@ -57,11 +56,11 @@ class DBSCAN(sklearn_dbscan):
         super().__init__(eps=self.eps, min_samples=self.min_samples, metric='euclidean',
                          metric_params=None, algorithm='auto', leaf_size=30, p=None,
                          n_jobs=None)
-        super().fit(X, y, sample_weight)
+        return super().fit(X, y, sample_weight)
 
     def fit_predict(self, X, y=None, sample_weight=None):
         self._update_eps(X)
         super().__init__(eps=self.eps, min_samples=self.min_samples, metric='euclidean',
                          metric_params=None, algorithm='auto', leaf_size=30, p=None,
                          n_jobs=None)
-        super().fit_predict(X, y, sample_weight)
+        return super().fit_predict(X, y, sample_weight)
