@@ -5,14 +5,14 @@ from pandas import read_parquet
 from tqdm import tqdm
 from ._interface import retrieve_json
 
-
 MODULE_PATH = Path(__file__).parent
-DATASET_INFO = retrieve_json(MODULE_PATH/"data.json")
-DASHLINK_FILES = MODULE_PATH/"dashlink_flights"
+DATASET_INFO = retrieve_json(MODULE_PATH / "data.json")
+DASHLINK_FILES = MODULE_PATH / "dashlink_flights"
 
 
 class ProgressBar(tqdm):
     """Download progress bar based on tqdm."""
+
     def update_to(self, block=1, block_size=1, total_size=None):
         """Update progress bar."""
         if total_size is not None:

@@ -16,7 +16,8 @@ def get_quantiles2(df, hue_column, indexing_column, target_column, quantile=[5, 
     space = np.linspace(begin, end)
     quantile_array = []
     for s in space:
-        a = df.sort_values(by=indexing_column).groupby(hue_column).apply(lambda x: np.interp(s, x[indexing_column], x[target_column])).values
+        a = df.sort_values(by=indexing_column).groupby(hue_column).apply(
+            lambda x: np.interp(s, x[indexing_column], x[target_column])).values
         q = np.percentile(a, quantile)
         quantile_array.append(q)
     quantile_array = np.array(quantile_array).reshape(-1, 2)
@@ -33,8 +34,9 @@ def get_quantiles(df, hue_column, indexing_column, target_column, quantile=[2.5,
     space = np.linspace(begin, end)
     quantile_array = []
     for s in space:
-        quantile_array.append(np.percentile(df.sort_values(by=indexing_column).groupby(hue_column)[target_column, indexing_column].apply(
-            lambda x: np.interp(s, x[indexing_column], x[target_column])).values, quantile))
+        quantile_array.append(
+            np.percentile(df.sort_values(by=indexing_column).groupby(hue_column)[target_column, indexing_column].apply(
+                lambda x: np.interp(s, x[indexing_column], x[target_column])).values, quantile))
     quantile_array = np.array(quantile_array).reshape(-1, 2)
 
     return np.hstack([space.reshape(-1, 1), quantile_array])
@@ -81,28 +83,28 @@ def plot_flights_n_boundary(df_flights, x_column, y_column, hue_column,
     fig, ax = plt.subplots()
     if xlims is None:
         x_min = round(min(df_flights[x_column]), -1)
-        x_min_margin = round(0.1*(round(min(df_flights[x_column]), -1)) -
+        x_min_margin = round(0.1 * (round(min(df_flights[x_column]), -1)) -
                              ceil(max(df_flights[x_column])), -2)
         x_max = ceil(max(df_flights[x_column]))
-        x_max_margin = round(0.1*(ceil(max(df_flights[x_column])) -
-                                  round(min(df_flights[x_column]), -1)), -2)
-        xlims = (x_min+x_min_margin, x_max+x_max_margin)
+        x_max_margin = round(0.1 * (ceil(max(df_flights[x_column])) -
+                                    round(min(df_flights[x_column]), -1)), -2)
+        xlims = (x_min + x_min_margin, x_max + x_max_margin)
     else:
         xlims = sorted(xlims)
         df_flights = df_flights[
-                df_flights[x_column] >= xlims[0]][
-                        df_flights[x_column] <= xlims[1]]
+            df_flights[x_column] >= xlims[0]][
+            df_flights[x_column] <= xlims[1]]
     if ylims is None:
         ylims = (
-                round(min(df_flights[y_column]), -1),
-                ceil(max(df_flights[y_column]))
-                 )
+            round(min(df_flights[y_column]), -1),
+            ceil(max(df_flights[y_column]))
+        )
     else:
         ylims = sorted(ylims)
         df_flights = df_flights[
-                df_flights[y_column] >= ylims[0]][
-                        df_flights[y_column] <= ylims[1]
-                ]
+            df_flights[y_column] >= ylims[0]][
+            df_flights[y_column] <= ylims[1]
+            ]
     if xlabel is None:
         xlabel = x_column
     if ylabel is None:
@@ -122,12 +124,12 @@ def plot_flights_n_boundary(df_flights, x_column, y_column, hue_column,
     ax.set_xlim(*xlims)
     ax.set_ylim(*ylims)
     array_collection = [
-            np.transpose(
-                    np.column_stack(
-                            df_flights[df_flights[hue_column] == flight_id]
-                            [[x_column, y_column]].to_numpy())
-                    ) for flight_id in df_flights[hue_column].unique()
-                    ]
+        np.transpose(
+            np.column_stack(
+                df_flights[df_flights[hue_column] == flight_id]
+                [[x_column, y_column]].to_numpy())
+        ) for flight_id in df_flights[hue_column].unique()
+    ]
     line_segments = LineCollection(array_collection,
                                    linewidths=(0.5, 1, 1.5, 2),
                                    linestyles='solid',
@@ -250,11 +252,13 @@ def plot_silhouette(sample_silhouette_values, n_clusters, labels, silhouette_avg
 
 
 if __name__ == '__main__':
-    df_flights = pd.DataFrame({'id':[1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4],'x':[1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4],'y':[1,2,3,4,2,4,6,8,4,8,10,12,5,2,6,8]})
+    df_flights = pd.DataFrame(
+        {'id': [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4], 'x': [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
+         'y': [1, 2, 3, 4, 2, 4, 6, 8, 4, 8, 10, 12, 5, 2, 6, 8]})
     quantile_10 = get_quantile_per_sample(df_flights, 0.1, "x")
     quantile_90 = get_quantile_per_sample(df_flights, 0.9, "x")
     _ = plot_flights_n_boundary(df_flights,
-                                'x', 'y','id',
+                                'x', 'y', 'id',
                                 df_lower_boundary=quantile_10,
                                 df_upper_boundary=quantile_90,
                                 lower_boundary_label='10th percentile',

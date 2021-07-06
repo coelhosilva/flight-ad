@@ -14,7 +14,7 @@ setuptools.setup(
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Flight-Anomaly-Detection/flight-ad.git",
+    url="https://github.com/coelhosilva/flight-ad.git",
     packages=setuptools.find_packages(),
     install_requires=[
         'numpy~=1.20.3',

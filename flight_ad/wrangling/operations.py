@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
 __all__ = [
     'retrieve_all_parameters',
     'insert_missing_data',
@@ -20,8 +19,8 @@ def retrieve_all_parameters(parameter_info_dict):
 def insert_missing_data(df_flight, parameter_categories, index):
     """Impute missing flight data."""
     df_flight = df_flight.copy()
-    df_continuous = df_flight[index+parameter_categories['continuous']].interpolate().ffill().bfill().set_index(index)
-    df_discrete = df_flight[index+parameter_categories['discrete']].ffill().bfill().set_index(index)
+    df_continuous = df_flight[index + parameter_categories['continuous']].interpolate().ffill().bfill().set_index(index)
+    df_discrete = df_flight[index + parameter_categories['discrete']].ffill().bfill().set_index(index)
     return pd.concat([df_continuous, df_discrete], axis=1).reset_index()
 
 
