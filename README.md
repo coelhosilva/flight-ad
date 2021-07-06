@@ -15,7 +15,7 @@ It provides:
 -   Sample airplane sensor data, repackaged from NASA's DASHlink for the purpose of evaluating and advancing data mining capabilities that can be used to promote aviation safety;
 -   Adaptations of machine learning algorithms, such as a DBSCAN implementation that calculates the hyperparameter epsilon from the input data.
 
-## Instalation
+## Installation
 
 The easiest way to install flight-ad is using pip from your virtual environment.
 
@@ -106,9 +106,3 @@ If you use flight-ad in a scientific publication, we would appreciate citations.
 BibTex: TBD.
 
 Citation string: TBD.
-
-<!-- ```pip install flight-ad ``` -->
-
-<!-- ---------------------- -->
-
-<!-- <hr style="border:2px solid gray"> </hr> -->
