@@ -6,7 +6,7 @@ from flight_ad.transformations import reshape_df_interspersed
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from flight_ad.cluster import DBSCAN
-from flight_ad.learn import FunctionEstimator
+from flight_ad.learn import FunctionTransformer
 from flight_ad.learn import StatisticalLearner
 from flight_ad.pipeline import AnomalyDetectionPipeline
 from flight_ad.report import clustering_info, silhouette
@@ -28,7 +28,7 @@ wrangler = DataWrangler(wrangling_steps, memorize='change_col')
 # Learner
 learning_steps = {
     'preprocessing': [
-        ('reshaper', FunctionEstimator(reshape_df_interspersed)),
+        ('reshaper', FunctionTransformer(reshape_df_interspersed)),
         ('scaler', StandardScaler()),
         ('pca', PCA())
     ],

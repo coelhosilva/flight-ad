@@ -57,8 +57,9 @@ class AutoEncoderAD(AutoEncoder):
                          validation_fraction=validation_fraction, beta_1=beta_1, beta_2=beta_2,
                          epsilon=epsilon, n_iter_no_change=n_iter_no_change, max_fun=max_fun)
 
-    # def fit(self, X, y=None):
-    #     super().fit(X, X)
+    def fit_predict(self, X, y=None, **fit_params):
+        self.fit(X)
+        return self.predict(X)
 
     def predict(self, X):
         """Calculate samplewise squared error."""

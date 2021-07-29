@@ -46,6 +46,16 @@ class StatisticalLearner:
         self.pipeline.fit(X, y)
         return self
 
+    def fit_transform(self, X, y=None):
+        for pipeline in self.partial_pipelines:
+            self.partial_data[pipeline[0]] = pipeline[1].fit_transform(X)
+        return self.pipeline.fit_transform(X, y)
+
+    def fit_predict(self, X, y=None):
+        for pipeline in self.partial_pipelines:
+            self.partial_data[pipeline[0]] = pipeline[1].fit_transform(X)
+        return self.pipeline.fit_predict(X, y)
+
     def predict(self, X):
         return self.pipeline.predict(X)
 
@@ -58,13 +68,12 @@ class StatisticalLearner:
             verbose: {self.verbose}
             record: {self.record}
             recorded_steps: {self.recorded_steps}
-            partial_data: {self.partial_data}
         """
 
     def __repr__(self):
         """String representation of the class."""
         return f"StatisticalLearner(steps={self.steps}, memory={self.memory}, verbose={self.verbose}, " \
-               f"record={self.record}, recorded_steps={self.recorded_steps}, partial_data={self.partial_data})"
+               f"record={self.record}, recorded_steps={self.recorded_steps})"
 
 
 if __name__ == '__main__':

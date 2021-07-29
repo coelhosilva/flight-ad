@@ -3,7 +3,7 @@ from sklearn.cluster import DBSCAN as sklearn_dbscan
 from sklearn.neighbors import NearestNeighbors
 from flight_ad.math.geometry import curvature
 
-__all__ = ['DBSCAN']
+__all__ = ['DBSCAN', 'calculate_eps']
 
 
 def calculate_eps(X, mode=None, **kwargs):
