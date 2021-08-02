@@ -98,7 +98,7 @@ TBD.
 We welcome and encourage new contributors to help test `flight-ad` and add new functionality. Any input, feedback, 
 bug report or contribution is welcome.
 
-If one wishes to contact the author, they may do so by emailing <mailto:coelho@ita.br>.
+If one wishes to contact the author, they may do so by emailing coelho@ita.br.
 
 ## Citation
 
