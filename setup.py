@@ -1,20 +1,25 @@
 import setuptools
+import os
 
+NAME = "flight-ad"
 VERSION = "0.0.1"
 DESCRIPTION = "flight-ad is a Python package for anomaly detection in the aviation domain built on top of scikit-learn."
-with open("README.md", "r") as fh:
+package_root = os.path.abspath(os.path.dirname(__file__))
+readme_filename = os.path.join(package_root, "README.md")
+
+with open(readme_filename, "r") as fh:
     long_description = fh.read()
 
 
 setuptools.setup(
-    name="flight_ad",
+    name=NAME,
     version=VERSION,
     author="Lucas Coelho e Silva",
-    author_email="lucascoelhosilva@gmail.com",
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/coelhosilva/flight-ad.git",
+    license='MIT',
     packages=setuptools.find_packages(),
     install_requires=[
         'numpy~=1.20.3',
@@ -26,9 +31,16 @@ setuptools.setup(
     ],
     keywordsList=['anomaly detection', 'anomaly', 'flight'],
     classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     include_package_data=True,
 )

@@ -23,6 +23,8 @@ def insert_missing_data(df_flight, parameter_categories, index):
 def map_parameters(df, map_dict):
     """
     Map parameters.
+
+    Example:
     map_dict: {'WOW': {'GROUND': 0, 'AIR': 1}, 'FLAP': {'UP':0,'POS 1':1}}
     """
     df = df.copy()

@@ -44,6 +44,7 @@ class FunctionPipeline:
             return x
 
     def __str__(self):
+        """String version of the class for printing."""
         return f"""
         FunctionPipeline:
             steps: {self.steps}

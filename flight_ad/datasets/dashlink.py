@@ -11,6 +11,7 @@ DASHLINK_FILES = MODULE_PATH / "dashlink_flights"
 
 
 class ProgressBar(tqdm):
+
     """Download progress bar based on tqdm."""
 
     def update_to(self, block=1, block_size=1, total_size=None):
@@ -21,6 +22,7 @@ class ProgressBar(tqdm):
 
 
 class DatasetException(Exception):
+
     """Database exception in case the dataset is not found."""
     pass
 

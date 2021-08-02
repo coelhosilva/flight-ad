@@ -7,7 +7,10 @@ from matplotlib import colors as mcolors
 import matplotlib.cm as cm
 
 
-def get_quantiles2(df, hue_column, indexing_column, target_column, quantile=[5, 95]):
+def get_quantiles2(df, hue_column, indexing_column, target_column, quantile=None):
+    if quantile is None:
+        quantile = [5, 95]
+
     df = df.copy()
 
     begin = df[indexing_column].max()
@@ -25,7 +28,10 @@ def get_quantiles2(df, hue_column, indexing_column, target_column, quantile=[5, 
     return np.hstack([space.reshape(-1, 1), quantile_array])
 
 
-def get_quantiles(df, hue_column, indexing_column, target_column, quantile=[2.5, 97.5]):
+def get_quantiles(df, hue_column, indexing_column, target_column, quantile=None):
+    if quantile is None:
+        quantile = [2.5, 97.5]
+
     df = df.copy()
 
     begin = df.groupby(hue_column)[indexing_column].max().min()
@@ -78,7 +84,6 @@ def plot_flights_n_boundary(df_flights, x_column, y_column, hue_column,
                             label_highlighted_flights=False,
                             include_legend=True):
     """Plots pair of parameters for every flight within the compiled dataframe."""
-
     df_flights = df_flights.copy()
     fig, ax = plt.subplots()
     if xlims is None:
