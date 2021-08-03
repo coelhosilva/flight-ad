@@ -20,7 +20,11 @@ It provides:
 
 The easiest way to install `flight-ad` is using pip from your virtual environment.
 
-Directly from GitHub:
+From PyPI:
+
+`pip install flight-ad`
+
+Or directly from GitHub:
 
 `pip install git+https://github.com/coelhosilva/flight-ad.git`
 
