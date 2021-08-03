@@ -19,6 +19,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/coelhosilva/flight-ad.git",
+    download_url="https://github.com/coelhosilva/flight-ad/archive/refs/tags/v0.0.1.tar.gz",
     license='MIT',
     packages=setuptools.find_packages(),
     install_requires=[
