@@ -2,7 +2,7 @@ import setuptools
 import os
 
 NAME = "flight-ad"
-VERSION = "0.0.1"
+VERSION = "0.0.2.dev1"
 DESCRIPTION = "flight-ad is a Python package for anomaly detection in the aviation domain built on top of scikit-learn."
 package_root = os.path.abspath(os.path.dirname(__file__))
 readme_filename = os.path.join(package_root, "README.md")
