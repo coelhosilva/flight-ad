@@ -19,3 +19,16 @@ class ClassifierWrapper(BaseEstimator, ClassifierMixin):
 
     def _binary_classification(self, X):
         return (self.estimator.predict(X) >= self.criteria).astype(int)
+
+
+if __name__ == '__main__':
+    import numpy as np
+
+    class TestClassifier:
+        @staticmethod
+        def predict(X):
+            return np.random.rand(X.shape[0])
+
+    wrapped = ClassifierWrapper(TestClassifier(), 0.6)
+    predictions = wrapped.predict(np.ones((5, 1)))
+    print(predictions)

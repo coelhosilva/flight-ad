@@ -64,7 +64,7 @@ wrangler = DataWrangler(wrangling_steps, memorize='change_col')
 # Learner
 learning_steps = {
     'preprocessing': [
-        ('reshaper', FunctionEstimator(reshape_df_interspersed)),
+        ('reshaper', FunctionTransformer(reshape_df_interspersed)),
         ('scaler', StandardScaler()),
         ('pca', PCA())
     ],
